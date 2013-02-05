@@ -171,7 +171,7 @@ var ReferrerKiller = (function () {
 	 * @param {object} [iframeAttributes]
 	 * @return {string} html
 	 */
-	function linkHtml(url, innerHTML, anchorParams, iframeAttributes) {
+	var linkHtml = PUB.linkHtml = function (url, innerHTML, anchorParams, iframeAttributes) {
 		var html,
 			urlRedirection = '';
 		innerHTML = innerHTML || false;
@@ -190,8 +190,7 @@ var ReferrerKiller = (function () {
 		}
 		html = '<a rel="noreferrer" href="' + urlRedirection + escapeDoubleQuotes(url) + '" ' + objectToHtmlAttributes(anchorParams) + '>' + innerHTML + '</a>';
 		return htmlString(html, iframeAttributes);
-	}
-	PUB.linkHtml = linkHtml;
+	};
 	
 	/**
 	 * It creates a link without referrer.
@@ -203,10 +202,9 @@ var ReferrerKiller = (function () {
 	 * @param {object} [iframeAttributes]
 	 * @return {Node}
 	 */
-	function linkNode(url, innerHTML, anchorParams, iframeAttributes) {
+	var linkNode = PUB.linkNode = function (url, innerHTML, anchorParams, iframeAttributes) {
 		return htmlToNode(linkHtml(url, innerHTML, anchorParams, iframeAttributes));
-	}
-	PUB.linkNode = linkNode;
+	};
 	
 	/**
 	 * It displays an image without sending the referrer.
@@ -216,7 +214,7 @@ var ReferrerKiller = (function () {
 	 * @param {Object} [imgAttributesParam]
 	 * @return {String} html
 	 */
-	function imageHtml(url, imgAttributesParam) {
+	var imageHtml = PUB.imageHtml = function (url, imgAttributesParam) {
 		var imgAttributes = imgAttributesParam || {},
 		/*-- Making sure this styles are applyed in the image but let the possibility to overwrite them --*/
 			defaultStyles = 'border:none; margin: 0; padding: 0';
@@ -226,8 +224,7 @@ var ReferrerKiller = (function () {
 			imgAttributes.style = defaultStyles;
 		}
 		return htmlString('<img src="' + escapeDoubleQuotes(url) + '" ' + objectToHtmlAttributes(imgAttributes) + '/>');
-	}
-	PUB.imageHtml = imageHtml;
+	};
 	
 	/**
 	 * It displays an image without sending the referrer.
@@ -237,10 +234,9 @@ var ReferrerKiller = (function () {
 	 * @param {object} [imgParams]
 	 * @return {Node}
 	 */
-	function imageNode(url, imgParams) {
+	var imageNode = PUB.imageNode = function (url, imgParams) {
 		return htmlToNode(imageHtml(url, imgParams));
-	}
-	PUB.imageNode = imageNode;
+	};
 
 	/*-- Exposing the module interface --*/
 	return PUB;
