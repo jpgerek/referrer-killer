@@ -1,29 +1,29 @@
 <!doctype html>
 <html>
-	<header>
-		<meta charset="utf-8" />
-		<title>ReferrerKiller demo</title>
-		<script src="referrer-killer.js"></script>
-	</header>
-	<body>
-		<h1>Demonstration of how to prevent your browser of sending the referrer http header.</h1>
-		<h3>Check the hack's source code <a href="referrer-killer.js">here</a>.</h3>
-		<h2>Links</h2>
-		<ul>
-			<li>Not sending referrer <span id="url_kill_referrer"></span></li>
-			<li>Sending referrer <a href="http://www.xhaus.com/headers" target="destiny">http://www.xhaus.com/headers</a></li>
-		</ul>
-		<iframe name="destiny" width="100%" height="460" src="about:blank"></iframe>
-		<script>
-			document.getElementById('url_kill_referrer').innerHTML = ReferrerKiller.linkHtml( 'http://www.xhaus.com/headers', 'http://www.xhaus.com/headers', { target: 'destiny' }, { verticalAlign: 'bottom' } );
-		</script>
-		<h2>Image uploaded to pixhost</h2>
-		<ul>
-			<li>Without sending referrer: <br/> <span id="image_kill_referrer"></span></li>
-			<li>Sending referrer: <br/> <img src="http://img4.pixhost.org/images/1693/14341576_a_fun.jpg" /></li>
-		</ul>
-		<script>
-			document.getElementById('image_kill_referrer').innerHTML = ReferrerKiller.imageHtml('http://img3.pixhost.org/images/2669/14341603_a_fun.jpg');
-		</script>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<title>ReferrerKiller demo</title>
+	<script src="referrer-killer.js"></script>
+</head>
+<body>
+	<h1>Demonstration of how to prevent your browser of sending the referrer http header.</h1>
+	<h3>Check the hack's source code <a href="referrer-killer.js">here</a>.</h3>
+	<h2>Links</h2>
+	<ul>
+		<li>Not sending referrer <span id="url_kill_referrer"></span></li>
+		<li>Sending referrer <a href="http://www.xhaus.com/headers" target="destiny">http://www.xhaus.com/headers</a></li>
+	</ul>
+	<iframe name="destiny" width="100%" height="460" src="about:blank"></iframe>
+	<script>
+		document.getElementById('url_kill_referrer').innerHTML = ReferrerKiller.linkHtml( 'http://www.xhaus.com/headers', 'http://www.xhaus.com/headers', { target: 'destiny' }, { verticalAlign: 'bottom' } );
+	</script>
+	<h2>Image uploaded to pixhost</h2>
+	<ul>
+		<li>Without sending referrer: <br/> <span id="image_kill_referrer"></span></li>
+		<li>Sending referrer: <br/> <img src="http://img4.pixhost.org/images/1693/14341576_a_fun.jpg" /></li>
+	</ul>
+	<script>
+		document.getElementById('image_kill_referrer').innerHTML = ReferrerKiller.imageHtml('http://img3.pixhost.org/images/2669/14341603_a_fun.jpg');
+	</script>
+</body>
 </html>
